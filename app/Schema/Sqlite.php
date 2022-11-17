@@ -1548,7 +1548,7 @@ function version_1(PDO $pdo)
     $pdo->exec("
         INSERT INTO users
         (username, password, is_admin)
-        VALUES ('admin', '".\password_hash('admin', PASSWORD_BCRYPT)."', '1')
+        VALUES ($KANBOARD_USER, '".\password_hash($KANBOARD_PASS, PASSWORD_BCRYPT)."', '1')
     ");
 
     $pdo->exec("
